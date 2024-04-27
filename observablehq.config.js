@@ -21,6 +21,8 @@ export default {
 
   // The path to the source root.
   root: "src",
+  // The path to the output root for build
+  output: "dist",
 
   // Some additional configuration options and their defaults:
   // theme: "default", // try "light", "dark", "slate", etc.
@@ -29,7 +31,6 @@ export default {
   // sidebar: true, // whether to show the sidebar
   // toc: true, // whether to show the table of contents
   // pager: true, // whether to show previous & next links in the footer
-  // output: "dist", // path to the output root for build
   // search: true, // activate search
   // linkify: true, // convert URLs in Markdown to links
   // typographer: false, // smart quotes and other typographic improvements
