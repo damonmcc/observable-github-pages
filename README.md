@@ -2,6 +2,8 @@
 
 This repo is an example of using [Github Pages](https://pages.github.com/) to host an [Observable](https://observablehq.com/) data app. It uses [Observable Framework](https://observablehq.com/framework/) for static site generation.
 
+## Development
+
 To start the local preview server, run:
 
 ```bash
@@ -9,6 +11,12 @@ npm run dev
 ```
 
 Then visit <http://localhost:3000> to preview your project.
+
+
+> [!TIP]
+> Framework is a Node.js application published to npm. You must have Node.js 18 or later installed before you can install Framework.
+>
+> For details, visit the [Getting Stated: Develop docs](https://observablehq.com/framework/getting-started#2.-develop).
 
 ## Project structure
 
