@@ -12,9 +12,8 @@ npm run dev
 
 Then visit <http://localhost:3000> to preview your project.
 
-
 > [!TIP]
-> Framework is a Node.js application published to npm. You must have Node.js 18 or later installed before you can install Framework.
+> You must have Node.js 18 or later installed.
 >
 > For details, visit the [Getting Stated: Develop docs](https://observablehq.com/framework/getting-started#2.-develop).
 
