@@ -19,7 +19,6 @@ const location = view(Locator(defaultCoordinates));
 ```
 
 ```js
-
 function Locator(initialValue) {
   const form = html`<form style="font: 12px var(--sans-serif); display: flex; height: 33px; align-items: center;">
   <button name=b type=button style="margin-right: 0.5em;">Locate me</button>
@@ -60,24 +59,36 @@ const latitudeFinal = (inputLatitudeValue || latitude)
 ```
 
 ```js
-const forecast = getWeather(longitudeFinal, latitudeFinal);
-// const forecast = FileAttachment("./data/forecast.json").json();
+let forecast = getWeather(longitudeFinal, latitudeFinal);
 ```
 
 ```js
-const forecastArea = await L.geoJSON([forecast.geometry]);
-const forecastMap = simpleMap('map1', forecastArea);
+let forecastArea = await L.geoJSON([forecast.geometry]);
 ```
 
 <div class="grid grid-cols-2">
-  <div class="card" style="max-width: 300px">
+  <div class="card">
     <p>Longitude ${inputLongitude}</p>
     <p>Latitude ${inputLatitude}</p>
   </div>
-  <div class="card" id="map1" style="padding: 0; min-height: 200px; width: auto">
-    ${resize((width) => forecastMap)}
+  <div class="card">
+    <p>NEW CARD</p>
   </div>
 </div>
+
+```js
+const divMap = display(document.createElement("div"));
+divMap.style = "height: 200px;";
+const mapForecast = L.map(divMap);
+L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
+  minZoom: 0,
+  maxZoom: 18,
+  ext: 'png'
+}).addTo(mapForecast);
+forecastArea.addTo(mapForecast);
+mapForecast.fitBounds(forecastArea.getBounds());
+mapForecast.setZoom(9);
+```
 
 <div class="grid grid-cols-1">
   <div class="card">${resize((width) => temperaturePlot(forecast, {width}))}</div>
