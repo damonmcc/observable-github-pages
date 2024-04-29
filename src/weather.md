@@ -99,3 +99,15 @@ mapForecast.setZoom(9);
 ```js echo
 display(forecast);
 ```
+
+```js echo
+display(Inputs.table(forecast.properties.periods))
+```
+
+```js echo
+forecast.properties.periods.map(a => a.temperature)
+```
+
+```js echo
+Math.round(d3.mean(forecast.properties.periods.map(a => a.temperature)))
+```
