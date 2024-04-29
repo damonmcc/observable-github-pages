@@ -7,8 +7,7 @@ toc: false
 
 ```js
 import * as L from "npm:leaflet";
-import {temperaturePlot} from "./components/weather.js"
-import {simpleMap} from "./components/map.js"
+import {simpleMap, temperaturePlot} from "./components/weather.js"
 import {getWeather, defaultCoordinates} from "./components/getWeather.js"
 ```
 
@@ -76,19 +75,7 @@ let forecastArea = await L.geoJSON([forecast.geometry]);
   </div>
 </div>
 
-```js
-const divMap = display(document.createElement("div"));
-divMap.style = "height: 200px;";
-const mapForecast = L.map(divMap);
-L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
-  minZoom: 0,
-  maxZoom: 18,
-  ext: 'png'
-}).addTo(mapForecast);
-forecastArea.addTo(mapForecast);
-mapForecast.fitBounds(forecastArea.getBounds());
-mapForecast.setZoom(9);
-```
+<div class="card" id="cardForecastMap" style="height: 200px;">${resize((width) => simpleMap("cardForecastMap", forecastArea, {width}))}</div>
 
 <div class="grid grid-cols-1">
   <div class="card">${resize((width) => temperaturePlot(forecast, {width}))}</div>
