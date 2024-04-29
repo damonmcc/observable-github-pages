@@ -8,7 +8,7 @@ export function simpleMap(div_name, forecastArea) {
       divMap._leaflet_id = null;
     }
   const forecastMap = L.map(divMap);
-  L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
+  L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
     minZoom: 0,
     maxZoom: 18,
     ext: 'png'
