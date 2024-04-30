@@ -8,7 +8,9 @@ async function json(url) {
   return await response.json();
 }
 
-const station = await json(`https://api.weather.gov/points/${latitude},${longitude}`);
+const station = await json(
+  `https://api.weather.gov/points/${latitude},${longitude}`
+);
 const forecast = await json(station.properties.forecastHourly);
 
 process.stdout.write(JSON.stringify(forecast));
