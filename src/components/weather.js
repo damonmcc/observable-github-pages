@@ -20,9 +20,9 @@ export function simpleMap(div_name, forecastArea) {
   return forecastMap
 }
 
-export function temperaturePlot(data, {width} = {}) {
-  let dateTimePeriod = data.properties.periods;
-  var meanTemp = Math.round(d3.mean(dateTimePeriod.map(a => a.temperature)));
+export function temperaturePlot(forecast, {width} = {}) {
+  let forecastPeriods = forecast.properties.periods;
+  var meanTemp = Math.round(d3.mean(forecastPeriods.map(a => a.temperature)));
   return Plot.plot({
     title: "Hourly temperature forecast",
     width,
@@ -36,8 +36,13 @@ export function temperaturePlot(data, {width} = {}) {
       symmetric: true
     },
     marks: [
-      Plot.ruleY(meanTemp),
-      Plot.dot(dateTimePeriod, {x: "startTime", y: "temperature", fill: "temperature"})
-    ]
+      // Plot.ruleY(meanTemp),
+      Plot.dot(
+        forecastPeriods, {
+          x: "startTime", 
+          y: "temperature", 
+          fill: "temperature"},
+      Plot.crosshairX(forecastPeriods, {x: "startTime", y: "temperature"})),
+  ]
   });
 }
